@@ -1,0 +1,71 @@
+{
+  "fallback_chain": [
+    "groq",
+    "kimi",
+    "ollama"
+  ],
+  "routing_rules": {
+    "privacy_sensitive": "ollama",
+    "high_reasoning": "groq"
+  },
+  "circuit_breaker": {
+    "failure_threshold": 5,
+    "recovery_timeout_sec": 60
+  },
+  "retry": {
+    "max_retries": 3,
+    "base_delay_sec": 2.0,
+    "jitter": true
+  },
+  "providers": {
+    "groq": {
+      "enabled": true,
+      "api_key": "",
+      "model": "llama3-8b-8192",
+      "timeout_seconds": 30
+    },
+    "kimi": {
+      "enabled": true,
+      "api_key": "",
+      "model": "moonshot-v1-8k",
+      "timeout_seconds": 30
+    },
+    "gemini": {
+      "enabled": true,
+      "api_key": "",
+      "model": "gemini-pro",
+      "timeout_seconds": 30
+    },
+    "ollama": {
+      "enabled": true,
+      "api_key": "",
+      "model": "tinyllama",
+      "timeout_seconds": 60,
+      "base_url": "http://localhost:11434"
+    },
+    "llamacpp": {
+      "enabled": true,
+      "api_key": "",
+      "model": "default",
+      "timeout_seconds": 60,
+      "base_url": "http://localhost:8080"
+    }
+  },
+  "bug_hunter": {
+    "output_dir": "./sprizen_reports",
+    "max_file_size_kb": 500,
+    "file_extensions": [
+      ".py",
+      ".js",
+      ".ts",
+      ".java",
+      ".cpp",
+      ".c",
+      ".go",
+      ".rs",
+      ".php",
+      ".rb",
+      ".sh"
+    ]
+  }
+}
